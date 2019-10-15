@@ -2,9 +2,9 @@ var fs = require('fs');
 
 var generator = require('./generator.js');
 var lsystem = require('./lsystem.js');
-var twitterer = require('./twitterer.js');
+// var twitterer = require('./twitterer.js');
 var mentionHandler = require('./mentionHandler.js');
-twitterer.useCreds(JSON.parse(fs.readFileSync('./creds.json')));
+// twitterer.useCreds(JSON.parse(fs.readFileSync('./creds.json')));
 
 var action, retry;
 
@@ -17,21 +17,21 @@ action = function() {
         retry();
         return;
     }
-    
-    //fs.writeFileSync(__dirname + '/text.png', canvasBuf);
+
+    fs.writeFileSync(__dirname + '/text.png', canvasBuf);
 
     console.log('tweeting:', JSON.stringify(system));
 
-    twitterer.tweet(JSON.stringify(system), canvasBuf, undefined, function(error, res) {
-        if(error || (res||{}).statusCode !== 200) {
-            console.log('error tweeting:', error, (res||{}).body);
-            retry();
-        } else {
-            console.log('tweet success');
-        }
-    });
+    // twitterer.tweet(JSON.stringify(system), canvasBuf, undefined, function(error, res) {
+    //    if(error || (res||{}).statusCode !== 200) {
+    //         console.log('error tweeting:', error, (res||{}).body);
+    //        retry();
+    //    } else {
+    //        console.log('tweet success');
+    //    }
+    // });
 
-    mentionHandler.handleMentions(twitterer);
+    // mentionHandler.handleMentions(twitterer);
 }
 
 retry = function() {
