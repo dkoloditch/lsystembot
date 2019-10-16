@@ -12,6 +12,8 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "fabric": "^1.6.4",
+    "libxmljs": "^0.19.7",
+    "node-gyp": "^6.0.0",
     "request": "^2.56.0"
   },
   "devDependencies": {
