@@ -4,6 +4,8 @@ const app = express()
 const port = process.env.PORT || 3000
 require('dotenv').config()
 
+const bot = require('./bot')
+
 app.use(express.static(path.join(__dirname, '/')))
 
 app.get('/', (req, res) => {
@@ -22,6 +24,7 @@ app.get('/', (req, res) => {
 
   // do the thing
   console.log('Successful request. Processing...')
+  bot()
   res.sendStatus(200)
 })
 
