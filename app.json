@@ -1,0 +1,20 @@
+{
+  "name": "lsystembot",
+  "scripts": {
+  },
+  "env": {
+    "SECRET_KEY": {
+      "required": true
+    }
+  },
+  "formation": {
+  },
+  "addons": [
+  ],
+  "stack": "heroku-18",
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
